@@ -79,14 +79,37 @@ class MainViewWidgetState extends State<MainViewWidget> with SingleTickerProvide
         ),
 
       ),
-      body: new TabBarView(
-        controller: _tabController,
-        children: <Widget>[
-          new Center(child: new Text('我的')),
-          new Center(child: new Text('发现')),
-          new Center(child: new Text('朋友')),
-          new Center(child: new Text('视频')),
-        ],
+      body: Container(
+        child: Stack(
+          children: <Widget>[
+            new TabBarView(
+              controller: _tabController,
+              children: <Widget>[
+                new Container(
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: <Widget>[
+                        Text('12132', style: TextStyle(fontSize: 20),),
+                      ],
+                    ),
+                  ),
+                ),
+                new Center(child: new Text('发现')),
+                new Center(child: new Text('朋友')),
+                new Center(child: new Text('视频')),
+              ],
+            ),
+            Positioned(
+              child: Container(
+                height: 40,
+                color: Color.fromRGBO(255, 255, 255, 0.8),
+              ),
+              left: 0,
+              bottom: 0,
+              right: 0,
+            )
+          ],
+        ),
       ),
       drawer: Drawer(   // this will set the drawer
         child: Container(
